@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"/>
+    <title>Morphic SVG</title>
+</head>
+<body>
+    <svg id="morph" width="100%" height="100%" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+        <path fill="#002E3A" class="morph" d="M0,0H0S177.589-3.419,435.908,0C728.248,0,675.25-1.71,998.363,0s364.143-
+        1.71,608.614,0,312.892,0,312.892,0H0Z"/>
+    </svg>
+    <section id="sect1">
+        <h1>Give me a clicky</h1>
+        <p>Go on, go already! Click it ya hear!</p>
+        <button id="btn-click">Tappy tappy</button>
+    </section>
+
+    <section id="sect2">
+        <button id="btn2">Back to morph</button>
+    </section>
+
+<script>
+    var btn = document.getElementById('btn-click');
+    var btn2 = document.getElementById('btn2');
+    var sect2 = document.getElementById('sect2');
+    var overlay = document.getElementById('morph');
+
+    var morphing = anime({
+        targets: '.morph',
+        d: [
+            { value: 'M0,0V496.781s90.608-143.605,425.688-141.9c314.564-' +
+                    '3.419,210.261,314.564,562.455,314.565s315.651-285.5,600.066-' +
+                    '285.5,331.66,181.216,331.66,181.216V0Z' },
+            { value: 'M0,0V1080.819s94.027-' +
+                    '1.71,429.107,0c227.375,3.418,211.971,0,564.164,0s340.379-' +
+                    '1.709,569.293,0,357.3,0,357.3,0V0Z' }
+            ],
+        easing: 'easeInOutQuint',
+        duration: 1300,
+        loop: false,
+        autoplay: false
+    });
+
+    btn.addEventListener('click', function () {
+        morphing.restart();
+        overlay.classList.add('pointer');
+        sect2.classList.add('animated', 'display', 'flipInY', 'delay-1s');
+    })
+
+    btn2.addEventListener('click', function () {
+        morphing.reverse();
+        morphing.play();
+        overlay.classList.remove('pointer');
+        sect2.classList.remove('animated', 'display', 'flipInY', 'delay-1s');
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+== SVG morphing animejs
+
+Just a simple test of morphing SVG with anime.js.
+https://animejs.com/

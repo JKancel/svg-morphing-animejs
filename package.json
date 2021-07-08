@@ -1,0 +1,14 @@
+{
+  "name": "svg-morphing-animejs",
+  "version": "0.0.1",
+  "main": "index.html",
+  "author": "Joffrey KANCEL",
+  "license": "MIT",
+  "scripts": {
+    "scss": "node-sass scss -o css",
+    "scss:watch": "node-sass --watch scss -o css"
+  },
+  "dependencies": {
+    "node-sass": "^6.0.1"
+  }
+}
